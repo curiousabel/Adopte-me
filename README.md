@@ -20,7 +20,8 @@
    - "parcel-bundler": "^1.12.4"
   }
 
-#How the app looks like 
-![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page1.JPG ) || ![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page1.JPG )
------------|--------------------
+# How the app looks like 
+
+![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page1.JPG ) | ![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page1.JPG )
+------------ | -------------
 
