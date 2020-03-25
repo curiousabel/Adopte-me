@@ -22,6 +22,7 @@
 
 # How the app looks like 
 
-![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page1.JPG ) | ![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page1.JPG )
+![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page1.JPG ) | ![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page2.JPG )
 ------------ | -------------
 
+ ![alt text](https://github.com/curiousabel/Adopte-me/blob/master/page3.JPG )
