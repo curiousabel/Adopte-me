@@ -1,22 +1,32 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Pet  from './Pet';
+import Pet from './Pet';
+import { Router, Link } from "@reach/router";
+
+import SearchParams from "./SearchParams"
+import Details from './Details';
 
 const App = () => {
-    // return React.createElement("div", { id: "something-important" }, [
-    //     React.createElement("h1", {}, "Adopte Me!"),
-    //     React.createElement(Pet, { name: "Luna", animal: "Dog", breed: "Havanese" }),
-    //     React.createElement(Pet, { name: "Pepper", animal: "Bird", breed: "Cockatiel" }),
-    //     React.createElement(Pet,{name:"Doink" , animal: "Cat", breed: "Mixed"},)
-    // ])
 
     return (
-        <div>
-            <h1 id="">Adopte Me!</h1>
-            <Pet name="Luna" animal="Dog" breed="Havanese"></Pet>
-            <Pet name="Pepper" animal="Bird" breed="Cockatiel"></Pet>
-            <Pet name="Doink" animal="Cat" breed="Mixed"></Pet>
-      </div>  
+        <React.StrictMode>
+            <div>
+                <header>
+                <Link to="/" >
+                Adopte Me!
+                </Link>
+          
+                </header>
+               
+ 
+                <Router>
+                    <SearchParams path="/"></SearchParams>
+                    <Details path="/details/:id"/> 
+                </Router>
+            
+      
+            </div>  
+            </React.StrictMode>
     );
 }
 
