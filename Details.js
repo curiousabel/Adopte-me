@@ -1,12 +1,76 @@
-import React from 'react';
-import { render } from "react-dom";
+import React from "react";
+import pet from "@frontendmasters/pet";
+import { navigate } from "@reach/router";
+import Carousel from "./Carousel";
 
-import SearchParams from './SearchParams';
+import ErrorBoundary from "./ErrorBoundary";
+import ThemeContext from "./ThemeContext";
 
-const Details = props => {
-    return <pre> <code>
-        {JSON.stringify(props,null,4)}
-    </code> </pre>
+class Details extends React.Component {
+  state = { loading: true, showModal: false };
+  componentDidMount() {
+    pet
+      .animal(this.props.id)
+      .then(({ animal }) => {
+        this.setState({
+          url: animal.url,
+          name: animal.name,
+          animal: animal.type,
+          location: `${animal.contact.address.city}, ${
+            animal.contact.address.state
+          }`,
+          description: animal.description,
+          media: animal.photos,
+          breed: animal.breeds.primary,
+          loading: false
+        });
+      })
+      .catch(err => this.setState({ error: err }));
+  }
+  toggleModal = () => this.setState({ showModal: !this.state.showModal });
+  adopt = () => navigate(this.state.url);
+  render() {
+    if (this.state.loading) {
+      return <h1>loading … </h1>;
+    }
+
+    const {
+      animal,
+      breed,
+      location,
+      description,
+      media,
+      name,
+      showModal
+    } = this.state;
+
+    return (
+      <div className="details">
+        <Carousel media={media} />
+        <div>
+          <h1>{name}</h1>
+          <h2>{`${animal} — ${breed} — ${location}`}</h2>
+          <ThemeContext.Consumer>
+            {([theme]) => (
+              <button
+                onClick={this.toggleModal}
+                style={{ backgroundColor: theme }}
+              >
+                Adopt {name}
+              </button>
+            )}
+          </ThemeContext.Consumer>
+          
+        </div>
+      </div>
+    );
+  }
 }
 
-export default Details;
+export default function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}
