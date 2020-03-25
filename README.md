@@ -3,9 +3,9 @@
 
 # Dependencies  
 +  "D": "^1.0.0",
-  -  "prettier": "^2.0.2",
-   - "react": "^16.13.1",
-  - "react-dom": "^16.13.1"
+      -  "prettier": "^2.0.2",
+       - "react": "^16.13.1",
+       - "react-dom": "^16.13.1"
 + "babel-eslint": "^10.1.0",
  -   "eslint": "^6.8.0",
  -   "eslint-config-prettier": "^6.10.1",
